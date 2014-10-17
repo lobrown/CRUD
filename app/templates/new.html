@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Create a New Menu Item </h1>
+
+<form method = "post" action "/">
+
+{{ form.csrf_token }}
+
+{{ form.title.label }} {{form.title(size=20) }} </br>
+
+
+{{ form.course.label }}{{ form.course}} </br>
+
+
+{{ form.description.label }}{{ form.description}} </br>
+
+
+
+{{ form.price.label }}{{ form.price}}</br>
+
+
+
+<input type="submit" value="Save">
+
+
+
+
+
+
+
+</form>
+
+
+
+
+
+{% endblock %}

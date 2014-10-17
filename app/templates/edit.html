@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Edit {{ item.title }} Menu Item</h1>
+
+<form method = "post" action "/">
+
+{{ form.csrf_token }}
+
+{{ form.title.label }}
+
+
+
+ {{form.title }} </br>
+
+
+{{form.course.label}}
+
+{{ form.course}} </br>
+
+
+{{form.description.label}}
+
+
+{{ form.description}} </br>
+
+{{form.price.label}}
+
+
+{{ form.price}}
+
+
+
+<input type="submit" value="Go">
+
+
+
+
+
+
+
+</form>
+
+
+
+
+
+{% endblock %}

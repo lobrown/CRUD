@@ -1,0 +1,185 @@
+<!doctype html>
+
+<html>
+  
+  <head>
+    <title>New Page</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 align="center">Restaurant Menu App</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+                {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <div class="alert alert-dismissable alert-info">
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} <strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+</div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+
+{% if items == [] %}
+
+<h2> You currently have no menu items </h2>
+
+
+<input type=button class ="btn btn-success btn-block" onClick="location.href= '{{ url_for ( 'new' ) }}'" value='Add First Menu Item'>
+
+{% else %}
+
+        <div class="row" id="Courses">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h1 align="center">Appetizers</h1>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+
+        {% for item in items %}
+{% if item.course == 'Appetizer' %} 
+        <div class="container" id="MenuItemsContainer">
+          <div class="row">
+            <div class="col-md-2">
+              <h4>{{ item.title }}</h4>
+            </div>
+            <div class="col-md-9">.....................................
+            </div>
+            <div class="col-md-1">
+              <h4> {{item.price}}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">{{item.description}}
+            </div>
+            <div class="col-md-2">
+              <a class="btn btn-primary" href='{{url_for('edit', title=item.title) }}' >Edit</a>
+            </div>
+            <div class="col-md-2">
+              <a class="btn btn-primary" href='{{url_for('delete', title=item.title) }}'>Delete</a>
+            </div>
+          </div>
+{% elif item.course == 'Entree' %}
+
+          <div class="row" id="Courses">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <h1 align="center">Entrees</h1>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <div class="container" id="MenuItemsContainer">
+            <div class="row">
+              <div class="col-md-2">
+                <h4>{{item.title}}</h4>
+              </div>
+              <div class="col-md-9">.....................................
+              </div>
+              <div class="col-md-1">
+                <h4>{{item.price}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">{{item.description}}
+              </div>
+              <div class="col-md-2">
+                <a class="btn btn-primary" href='{{url_for('edit', title=item.title) }}' >Edit</a>
+              </div>
+              <div class="col-md-2">
+                <a class="btn btn-primary" href='{{url_for('delete', title=item.title) }}'>Delete</a>
+              </div>
+            </div>
+
+            {% elif item.course =='Dessert' %}
+            <div class="row" id="Courses">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <h1 align="center">Desserts</h1>
+              </div>
+              <div class="col-md-3"></div>
+            </div>
+            <div class="container" id="MenuItemsContainer">
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>{{item.title}}</h4>
+                </div>
+                <div class="col-md-9">.....................................
+                </div>
+                <div class="col-md-1">
+                  <h4>{{item.price}}</h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">{{item.description}}
+                </div>
+                <div class="col-md-2">
+                  <a class="btn btn-primary" href='{{url_for('edit', title=item.title) }}' >Edit</a>
+                </div>
+                <div class="col-md-2">
+                 <a class="btn btn-primary" href='{{url_for('delete', title=item.title) }}'>Delete</a>
+                </div>
+              </div>
+
+              {%elif item.course=='Beverage'}
+              <div class="row" id="Courses">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <h1 align="center">Beverages</h1>
+                </div>
+                <div class="col-md-3"></div>
+              </div>
+              <div class="container" id="MenuItemsContainer">
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>{{item.title}}</h4>
+                  </div>
+                  <div class="col-md-9">.....................................
+                  </div>
+                  <div class="col-md-1">
+                    <h4>{{item.price}}</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">{{item.description}}
+                  </div>
+                  <div class="col-md-2">
+                   <a class="btn btn-primary" href='{{url_for('edit', title=item.title) }}' >Edit</a>
+                  </div>
+                  <div class="col-md-2">
+                    <a class="btn btn-primary" href='{{url_for('delete', title=item.title) }}'>Delete</a>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                      <a class="btn btn-primary">Add New Menu Item</a>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </body>
+
+</html>
