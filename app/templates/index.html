@@ -74,15 +74,23 @@
               <a class="btn btn-primary" href='{{url_for('delete', title=item.title) }}'>Delete</a>
             </div>
           </div>
-{% elif item.course == 'Entree' %}
+          {% endif %}
+          {% endfor %}
 
-          <div class="row" id="Courses">
+
+
+<div class="row" id="Courses">
             <div class="col-md-3"></div>
             <div class="col-md-6">
               <h1 align="center">Entrees</h1>
             </div>
             <div class="col-md-3"></div>
           </div>
+
+{% for item in items %}
+{% if item.course == 'Entree' %}
+
+          
           <div class="container" id="MenuItemsContainer">
             <div class="row">
               <div class="col-md-2">
@@ -104,8 +112,9 @@
                 <a class="btn btn-primary" href='{{url_for('delete', title=item.title) }}'>Delete</a>
               </div>
             </div>
+            {% endif %}
+            {% endfor %}
 
-            {% elif item.course =='Dessert' %}
             <div class="row" id="Courses">
               <div class="col-md-3"></div>
               <div class="col-md-6">
@@ -113,6 +122,11 @@
               </div>
               <div class="col-md-3"></div>
             </div>
+
+            {%for item in items%}
+
+            {% if item.course =='Dessert' %}
+            
             <div class="container" id="MenuItemsContainer">
               <div class="row">
                 <div class="col-md-2">
@@ -135,7 +149,9 @@
                 </div>
               </div>
 
-              {%elif item.course=='Beverage'%}
+              {% endif %}
+              {% endfor %}
+
               <div class="row" id="Courses">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -143,6 +159,11 @@
                 </div>
                 <div class="col-md-3"></div>
               </div>
+
+              {%  for item in items %}
+
+              {%if item.course=='Beverage'%}
+              
               <div class="container" id="MenuItemsContainer">
                 <div class="row">
                   <div class="col-md-2">
@@ -167,6 +188,8 @@
                
                 {% endif %}
                  {% endfor %}
+
+                 
                 <div class="container">
                   <div class="row">
                     <div class="col-md-4"></div>
